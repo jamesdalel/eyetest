@@ -1,0 +1,10 @@
+.test-card {
+    width: 350px;
+    margin: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.action-button {
+    text-decoration: none;
+}

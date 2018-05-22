@@ -1,0 +1,100 @@
+.duo-chrome-red {
+    background: #ef0000;
+    height: 50%;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+}
+
+.duo-chrome-green {
+    background: #3be000;
+    height: 50%;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+}
+
+.duo-chrome-circle-holder {
+    position: absolute;
+    height: 350px;
+    width: 350px;
+    /* background: #fff; */
+    
+}
+
+.duo-chrome-circle-holder-top {
+    top: 60px;
+}
+
+.duo-chrome-circle-holder-bottom {
+    bottom: 60px;
+}
+
+.duo-chrome-circle-holder-top-left {
+    left: 25%;
+}
+
+.duo-chrome-circle-holder-top-right {
+    right: 25%;
+}
+
+.duo-chrome-circle-holder-bottom-left {
+    left: 25%;
+}
+
+.duo-chrome-circle-holder-bottom-right {
+    right: 25%;
+}
+
+.duo-chrome-circle-outer {
+    background: #000000;
+    border-radius: 50%;
+    height: 350px;
+    width: 350px;
+    position: relative;
+}
+
+.duo-chrome-circle-outer-between-red {
+    background: #ef0000;
+}
+
+.duo-chrome-circle-outer-between-green {
+    background: #3be000;
+}
+
+.duo-chrome-circle-outer-between {
+
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+    position: relative;
+    top: 7%;
+    left: 7%;
+}
+
+.duo-chrome-circle-inner {
+    position: absolute;
+    background: #000000;
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    top: 9.5%;
+    left: 8.5%;
+}
+
+.duo-chrome-circle-inner-between-red {
+    background: #ef0000;
+}
+
+.duo-chrome-circle-inner-between-green {
+    background: #3be000;
+}
+
+.duo-chrome-circle-inner-between {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    position: relative;
+    top: 10.5%;
+    left: 10.5%;
+}

@@ -1,0 +1,8 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    width: auto;
+}
+
+@import './testCards.css';
+@import './duoChrome.css';
