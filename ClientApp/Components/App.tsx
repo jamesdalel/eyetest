@@ -13,8 +13,14 @@ import KayPictures from './EyeTests/KayPictures/KayPicturesComponent'
 import Numbers from './EyeTests/Numbers/NumbersComponent'
 import Snellen from './EyeTests/Snellen/SnellenComponent'
 import TumblingE from './EyeTests/TumblingE/TumblingEComponent'
-
+import device from 'current-device';
 export default class AppComponent extends React.Component<{}, {}> {
+
+    constructor(props: any) {
+        super(props);
+        device.default;
+    }
+
     render() {
         return (
             <React.Fragment>

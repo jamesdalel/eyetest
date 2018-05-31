@@ -16,41 +16,41 @@
 
 .duo-chrome-circle-holder {
     position: absolute;
-    height: 350px;
-    width: 350px;
+    height: 140px;
+    width: 140px;
     /* background: #fff; */
     
 }
 
 .duo-chrome-circle-holder-top {
-    top: 60px;
+    top: 30%;
 }
 
 .duo-chrome-circle-holder-bottom {
-    bottom: 60px;
+    bottom: 30%;
 }
 
 .duo-chrome-circle-holder-top-left {
-    left: 25%;
+    left: 30%;
 }
 
 .duo-chrome-circle-holder-top-right {
-    right: 25%;
+    right: 30%;
 }
 
 .duo-chrome-circle-holder-bottom-left {
-    left: 25%;
+    left: 30%;
 }
 
 .duo-chrome-circle-holder-bottom-right {
-    right: 25%;
+    right: 30%;
 }
 
 .duo-chrome-circle-outer {
     background: #000000;
     border-radius: 50%;
-    height: 350px;
-    width: 350px;
+    height: 140px;
+    width: 140px;
     position: relative;
 }
 
@@ -65,8 +65,8 @@
 .duo-chrome-circle-outer-between {
 
     border-radius: 50%;
-    height: 300px;
-    width: 300px;
+    height: 120px;
+    width: 120px;
     position: relative;
     top: 7%;
     left: 7%;
@@ -76,8 +76,8 @@
     position: absolute;
     background: #000000;
     border-radius: 50%;
-    height: 250px;
-    width: 250px;
+    height: 100px;
+    width: 100px;
     top: 9.5%;
     left: 8.5%;
 }
@@ -92,8 +92,8 @@
 
 .duo-chrome-circle-inner-between {
     border-radius: 50%;
-    height: 200px;
-    width: 200px;
+    height: 80px;
+    width: 80px;
     position: relative;
     top: 10.5%;
     left: 10.5%;

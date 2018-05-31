@@ -1,0 +1,91 @@
+@font-face {
+    font-family: "Sloan";
+    src:url("../Fonts/Sloan.otf")
+}
+
+.snellen-letter-row {
+    padding-top: 35vh;
+}
+
+.snellen-level-0 {
+    font-size: 29.0888mm;
+}
+
+.snellen-level-1 {
+    font-size: 14.54442mm;
+}
+
+.snellen-level-2 {
+    font-size: 9.715666mm;
+}
+
+.snellen-level-3 {
+    font-size: 7.272206mm;
+}
+
+.snellen-level-4 {
+    font-size: 5.81776mm;
+}
+
+.snellen-level-5 {
+    font-size: 4.36332mm;
+}
+
+.snellen-level-6 {
+    font-size: 3.6361mm;
+}
+
+.snellen-level-7 {
+    font-size: 2.90888mm;
+}
+
+.snellen-level-8 {
+    font-size: 2.18166mm;
+}
+
+.snellen-letter-group {
+    width: 100%;
+    text-align: center;
+    font-family: "Sloan"
+
+}
+
+.snellen-letter-row {
+    /* padding-top: 20px;
+    padding-bottom: 20px;
+    letter-spacing: 100px; */
+    letter-spacing: 100px;
+    height: 94vh;
+    text-align: center;
+    margin: auto;
+    vertical-align: middle;
+    
+}
+
+.snellen-distance-options {
+    float: right;
+    padding: 20px;
+}
+
+.snellen-distance-options-chip {
+    margin: 5px;
+}
+
+.snellen-nav-options i {
+    font-size: 50px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.snellen-nav-options-up {
+    position: fixed;
+    top: 0;
+    left: 45.5vw;
+    z-index: 1;
+}
+
+.snellen-nav-options-down {
+    position: fixed;
+    bottom: 0;  
+    left: 45.5vw;
+}
