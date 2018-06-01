@@ -190,7 +190,7 @@ export default class SnellenComponent extends React.Component<SnellenProps, Snel
             numberOfMetresAway: 3,
             sizeInMillimetres: 3.27249,
         }],
-        numberOfLetters: 6,
+        numberOfLetters: 5,
     }];
 
     letters: string[] = ["C", "D", "E", "F", "H", "N", "O", "R", "V", "Z"];
@@ -271,7 +271,7 @@ export default class SnellenComponent extends React.Component<SnellenProps, Snel
         let widthValue = screen.width * dppx;
         let heightValue = screen.height * dppx;
 
-        let dimensionValue = 21.5;
+        let dimensionValue = 24;
         let opt = 'd'
         // Calculate PPI/DPI
         widthValue > 0 || (widthValue = 1);

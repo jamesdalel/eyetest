@@ -4,14 +4,25 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
+import SettingsOnLoadComponent from './Settings/SettingsOnLoad'
 
 export interface HomeComponentProps { 
 
  }
 
-// 'HelloProps' describes the shape of props.
-// State is never set so we use the '{}' type.
-export default class HomeComponent extends React.Component<HomeComponentProps, {}> {
+ export interface HomeComponentState { 
+    firstTime: boolean;
+}
+
+export default class HomeComponent extends React.Component<HomeComponentProps, HomeComponentState> {
+
+    constructor(props: HomeComponentProps) {
+        super(props);
+
+        this.state = {
+            firstTime: true,
+        }
+    }
 
     private tests = [
         {
@@ -58,6 +69,9 @@ export default class HomeComponent extends React.Component<HomeComponentProps, {
     render() {
         return (
             <div>
+            {this.state.firstTime ? (
+                <SettingsOnLoadComponent/>
+            ) : null}
             {this.tests.map(test => {
                 return (
                     <div className='test-card'>
