@@ -9,41 +9,47 @@ interface SnellenProps {
 interface SnellenState { 
     distance: number;
     level: number;
+    group: number;
 }
 
+interface GroupLevels {
+    levels: number[];
+    groupId: number;
+}
 
 interface SnellenLevelDistance {
     numberOfMetresAway: number,
     sizeInMillimetres: number,
+    scale: number;
 }
 
 interface SnellenLevels {
     level: number;
     distance: SnellenLevelDistance[];
-    numberOfLetters: number;
+    amount: number;
 }
 
-interface SnellenLevelLetters {
-    letters: string[];
+interface LevelContent extends SnellenLevels {
+    content: string[];
     fontSize: number;
-    level: number;
 }
 
 export default class SnellenComponent extends React.Component<SnellenProps, SnellenState> {
 
-    private levelLetterRows: {[key: number]: SnellenLevelLetters};
+    private levelRow: {[key: number]: LevelContent};
     private maxLevel: number;
     private minLevel: number;
 
     constructor(props: SnellenProps) {
         super(props);
         
-        this.maxLevel = 8;
+        this.maxLevel = 5;
         this.minLevel = 0;
 
         this.state = {
             distance: 2,
             level: 0,
+            group: 0,
         }
 
         const os = device.os;
@@ -96,190 +102,257 @@ export default class SnellenComponent extends React.Component<SnellenProps, Snel
         distance: [{
             numberOfMetresAway: 2,
             sizeInMillimetres: 58.1776,
+            scale: 120
         }, {
             numberOfMetresAway: 3,
             sizeInMillimetres: 87.2664,
+            scale: 120
         }],
-        numberOfLetters: 1,
+        amount: 1,
     }, {
         level: 1,
         distance: [{
             numberOfMetresAway: 2,
             sizeInMillimetres: 29.0888,
+            scale: 60
         }, {
             numberOfMetresAway: 3,
             sizeInMillimetres: 43.6332,
+            scale: 60
         }],
-        numberOfLetters: 3,
+        amount: 3,
     }, {
         level: 2,
         distance: [{
             numberOfMetresAway: 2,
-            sizeInMillimetres: 14.54442,
+            sizeInMillimetres: 21.74663,
+            scale: 45
         }, {
             numberOfMetresAway: 3,
-            sizeInMillimetres: 21.8166,
+            sizeInMillimetres: 9999999,
+            scale: 45
         }],
-        numberOfLetters: 3,
+        amount: 3,
     }, {
         level: 3,
         distance: [{
             numberOfMetresAway: 2,
-            sizeInMillimetres: 9.715666,
+            sizeInMillimetres: 14.54442,
+            scale: 30
         }, {
             numberOfMetresAway: 3,
-            sizeInMillimetres: 14.573499,
+            sizeInMillimetres: 21.8166,
+            scale: 30
         }],
-        numberOfLetters: 5,
+        amount: 5,
     }, {
         level: 4,
         distance: [{
             numberOfMetresAway: 2,
-            sizeInMillimetres: 7.272206,
+            sizeInMillimetres: 9.715666,
+            scale: 20
         }, {
             numberOfMetresAway: 3,
-            sizeInMillimetres: 10.908309,
+            sizeInMillimetres: 14.573499,
+            scale: 20
         }],
-        numberOfLetters: 5,
+        amount: 5,
     }, {
         level: 5,
         distance: [{
             numberOfMetresAway: 2,
-            sizeInMillimetres: 5.81776,
+            sizeInMillimetres: 7.272206,
+            scale: 15
         }, {
             numberOfMetresAway: 3,
-            sizeInMillimetres: 8.72664,
+            sizeInMillimetres: 10.908309,
+            scale: 15
         }],
-        numberOfLetters: 5,
+        amount: 5,
     }, {
         level: 6,
         distance: [{
             numberOfMetresAway: 2,
-            sizeInMillimetres: 4.36332,
+            sizeInMillimetres: 5.81776,
+            scale: 12
         }, {
             numberOfMetresAway: 3,
-            sizeInMillimetres: 6.54498,
+            sizeInMillimetres: 8.72664,
+            scale: 12
         }],
-        numberOfLetters: 5,
+        amount: 5,
     }, {
         level: 7,
         distance: [{
             numberOfMetresAway: 2,
-            sizeInMillimetres: 3.6361,
+            sizeInMillimetres: 4.36332,
+            scale: 9
         }, {
             numberOfMetresAway: 3,
-            sizeInMillimetres: 5.45415,
+            sizeInMillimetres: 6.54498,
+            scale: 9
         }],
-        numberOfLetters: 5,
+        amount: 5,
     }, {
         level: 8,
         distance: [{
             numberOfMetresAway: 2,
-            sizeInMillimetres: 2.90888,
+            sizeInMillimetres: 3.6361,
+            scale: 7.5
         }, {
             numberOfMetresAway: 3,
-            sizeInMillimetres: 4.36332,
+            sizeInMillimetres: 5.45415,
+            scale: 7.5
         }],
-        numberOfLetters: 5,
+        amount: 5,
     }, {
         level: 9,
         distance: [{
             numberOfMetresAway: 2,
+            sizeInMillimetres: 2.90888,
+            scale: 6
+        }, {
+            numberOfMetresAway: 3,
+            sizeInMillimetres: 4.36332,
+            scale: 6
+        }],
+        amount: 5,
+    }, {
+        level: 10,
+        distance: [{
+            numberOfMetresAway: 2,
             sizeInMillimetres: 2.18166,
+            scale: 4.5
         }, {
             numberOfMetresAway: 3,
             sizeInMillimetres: 3.27249,
+            scale: 4.5
         }],
-        numberOfLetters: 5,
+        amount: 5,
     }];
 
-    letters: string[] = ["C", "D", "E", "F", "H", "N", "O", "R", "V", "Z"];
+    content: string[] = ["C", "D", "E", "F", "H", "N", "O", "R", "V", "Z"];
+    grouping: GroupLevels[] = [
+        {
+            groupId: 0,
+            levels: [0],
+        }, {
+            groupId: 1,
+            levels: [1, 2],
+        }, {
+            groupId: 2,
+            levels: [3, 4],
+        }, {
+            groupId: 3,
+            levels: [5, 6],
+        }, {
+            groupId: 4,
+            levels: [7, 8],
+        }, {
+            groupId: 5,
+            levels: [9, 10],
+        }
+    ]
 
-    private getLevelLetters = (): JSX.Element => {
+    private getFontSize = (level: LevelContent, sizeInMillimetres: number): number => {
+        const numberOfMillimetreInInch: number = Math.round(25.4);
+        const dpi: number = this.getDpi();
+        const millimetreSize: number = dpi / numberOfMillimetreInInch;
+        const size: number = sizeInMillimetres * millimetreSize;
+        const roundedSize: number = Math.round(size);
+        return roundedSize;
+        
+    }
 
-        const levelLetters: SnellenLevelLetters[] = [];
-        const lettersLength: number = this.letters.length;
-        const level = this.levels.find(level => level.level === this.state.level)
+    private getLevelContent = (): JSX.Element => {
 
-        const levelLetter: SnellenLevelLetters = {
-            letters: [],
-            fontSize: 0,
-            level: level.level,
-        };
+        // find the current group
+        const currentGroup = this.grouping.find(group => group.groupId === this.state.group);
+        // find the the levels that belong to this group
+        const levels: SnellenLevels[] = this.levels.filter((level: SnellenLevels) => {
+            for (const levelNumber of currentGroup.levels) {
+                if (level.level === levelNumber) {
+                    return level;
+                }
+            }
+        });
 
-        // if we already have letters then we don't want to get them again
-        if (this.levelLetterRows && this.levelLetterRows[this.state.level] && this.levelLetterRows[this.state.level].letters.length > 0) {
-            levelLetter.letters = this.levelLetterRows[this.state.level].letters;
-        } else {
-            // for each level we need to get the letters and the correct font size
-            for (let i: number = 0; i < level.numberOfLetters; i += 1) {
-                let randomIndex: number = Math.floor(Math.random() * lettersLength);
-                let alreadyExists: boolean = true;
+        const groupContent: LevelContent[] = [];
+        const contentLength: number = this.content.length;
+        if (levels && levels.length > 0) {
+            for (const level of levels) {
 
-                while (alreadyExists) {
-                    if (levelLetter.letters.indexOf(this.letters[randomIndex]) === -1) {
-                        alreadyExists = false;
-                    } else {
-                        randomIndex = Math.floor(Math.random() * lettersLength);
+                const rowContent: LevelContent = {
+                    content: [],
+                    fontSize: 0,
+                    level: level.level,
+                    distance: level.distance,
+                    amount: level.amount,
+                };
+        
+                if (this.levelRow && this.levelRow[level.level] && this.levelRow[level.level].content.length > 0) {
+                    // if we already have letters for this row then use them
+                    rowContent.content = this.levelRow[level.level].content;
+                } else {
+                    // if we don't have letters for this row then we need to create them
+                    for (let i: number = 0; i < level.amount; i += 1) {
+                        let randomIndex: number = Math.floor(Math.random() * contentLength);
+                        let alreadyExists: boolean = true;
+                        while (alreadyExists) {
+                            if (rowContent.content.indexOf(this.content[randomIndex]) === -1) {
+                                alreadyExists = false;
+                            } else {
+                                randomIndex = Math.floor(Math.random() * contentLength);
+                            }
+                        }
+                        rowContent.content.push(this.content[randomIndex]);
                     }
+                    if (!this.levelRow) {
+                        this.levelRow = {};
+                    }
+                    this.levelRow[level.level] = rowContent;
                 }
 
-                levelLetter.letters.push(this.letters[randomIndex]);
+                groupContent.push(rowContent);
             }
 
-            if (!this.levelLetterRows) {
-                this.levelLetterRows = {};
+            const rows: JSX.Element[] = [];
+
+            if (groupContent && groupContent.length > 0) {
+                for (const level of groupContent) {
+                    // we now need to get the font size
+                    const distance: SnellenLevelDistance = level.distance.find(
+                        distance => distance.numberOfMetresAway === this.state.distance);
+
+                    level.fontSize = this.getFontSize(level, distance.sizeInMillimetres);
+                    rows.push(<div 
+                        style={{fontSize: level.fontSize + 'px'}} 
+                        className={`snellen-letter-row snellen-level-${level.level}`}>{level.content}<div className='snellen-scale'>{distance.scale}</div>
+                    </div>);
+
+                }
+
+                return (<div className='snellen-letter-group'>{rows}</div>);
             }
-
-            this.levelLetterRows[this.state.level] = levelLetter;
-
         }
 
-        const numberOfMillimetreInInch: number = 25.4;
-        const dpi: number = this.getDpi();
-
-        const sizeInMillimetres: number = level.distance.find(
-            distance => distance.numberOfMetresAway === this.state.distance).sizeInMillimetres;
-
-        const millimetreSize: number = dpi / numberOfMillimetreInInch;
-        const size: number = millimetreSize * sizeInMillimetres;
-        const roundedSize: number = Math.round(size);
-
-        levelLetters.push({
-            letters: levelLetter.letters,
-            fontSize: roundedSize,
-            level: level.level,
-        });
-        
-
-        let rows: JSX.Element[] = [];
-
-        for (const level of levelLetters) {
-            rows.push(<div 
-                style={{fontSize: level.fontSize + 'px'}} 
-                className={`snellen-letter-row snellen-level-${level.level}`}>{level.letters}
-            </div>);
-        }
-        return (<div className='snellen-letter-group'>{rows}</div>);
     }
 
     private getDpi = () => {
         const dppx = window.devicePixelRatio ||
         (window.matchMedia && window.matchMedia("(min-resolution: 2dppx), (-webkit-min-device-pixel-ratio: 1.5),(-moz-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5)").matches? 2 : 1) ||
         1;
-
         let widthValue = screen.width * dppx;
         let heightValue = screen.height * dppx;
+        let dimensionValue = 21.5;
+        const widthValueTimes = (widthValue * widthValue);
+        const heightValueTimes = (heightValue * heightValue);
+        const widthHeightAddedTogether = widthValueTimes + heightValueTimes;
+        const widthHeight = Math.sqrt(widthHeightAddedTogether);
+        const roundedWidthHeight = Math.round(widthHeight)
+        let dpi = roundedWidthHeight / dimensionValue;
 
-        let dimensionValue = 24;
-        let opt = 'd'
-        // Calculate PPI/DPI
-        widthValue > 0 || (widthValue = 1);
-        heightValue > 0 || (heightValue = 1);
-        opt   || (opt = 'd');
-        var dpi = (opt == 'd' ? Math.sqrt(widthValue * widthValue + heightValue * heightValue) : opt == 'w' ? widthValue : heightValue) / dimensionValue;
         return dpi > 0 ? Math.round(dpi)  : 0;
-
     }
 
     private distanceOptionClick = (distance: number) => {
@@ -289,11 +362,17 @@ export default class SnellenComponent extends React.Component<SnellenProps, Snel
     private getPreviousLevel = () => {
         let currentLevel = this.state.level;
         this.setState({level: currentLevel -= 1});
+
+        let currentGroup = this.state.group;
+        this.setState({group: currentGroup -= 1});
     }
 
     private getNextLevel = () => {
         let currentLevel = this.state.level;
-        this.setState({level: currentLevel += 1});       
+        this.setState({level: currentLevel += 1});
+
+        let currentGroup = this.state.group;
+        this.setState({group: currentGroup += 1});
     }
 
     private canGoToNextLevel = (): boolean => {
@@ -339,7 +418,7 @@ export default class SnellenComponent extends React.Component<SnellenProps, Snel
                         </div>
                     </div>
                     ) : (null)}
-                    {this.state.distance ? this.getLevelLetters() : null}
+                    {this.state.distance ? this.getLevelContent() : null}
                     {this.canGoToNextLevel() ? (
                     <div className='snellen-nav-options snellen-nav-options-down'>
                         <div

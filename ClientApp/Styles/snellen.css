@@ -3,8 +3,17 @@
     src:url("../Fonts/Sloan.otf")
 }
 
+.snellen-scale {
+    font-size: 23px;
+    letter-spacing: normal;
+    position: relative;
+    color: #5a5353!important;
+    font-family: 'Roboto', sans-serif;
+
+}
+
 .snellen-letter-row {
-    padding-top: 35vh;
+    padding-bottom: 10vh;
 }
 
 .snellen-level-0 {
@@ -44,10 +53,17 @@
 }
 
 .snellen-letter-group {
-    width: 100%;
-    text-align: center;
-    font-family: "Sloan"
-
+    /* width: 100%;
+    text-align: center; */
+    font-family: "Sloan";
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: fit-content;
+    height: fit-content;
 }
 
 .snellen-letter-row {
@@ -55,7 +71,7 @@
     padding-bottom: 20px;
     letter-spacing: 100px; */
     letter-spacing: 100px;
-    height: 94vh;
+    /* height: 94vh; */
     text-align: center;
     margin: auto;
     vertical-align: middle;
@@ -88,4 +104,12 @@
     position: fixed;
     bottom: 0;  
     left: 45.5vw;
+}
+
+.scale-box {
+    height: 211px;
+    width: 50px;
+    background: red;
+    margin: 300px;
+    position: absolute
 }

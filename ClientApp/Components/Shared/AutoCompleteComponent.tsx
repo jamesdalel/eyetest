@@ -105,7 +105,7 @@ const AutoCompleteComponent: React.SFC<AutoCompleteComponentProps> = ({
 
     return (
         <React.Fragment>
-            <InputLabel>Exisitng Device</InputLabel>
+            <InputLabel>Exisitng Device AAA</InputLabel>
             <Autosuggest
                 theme={{
                     // container: classes.container,
