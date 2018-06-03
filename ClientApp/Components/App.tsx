@@ -9,7 +9,7 @@ import DuoChrome from './EyeTests/DuoChrome/DuoChromeComponent'
 import Fixation from './EyeTests/Fixation/FixationComponent'
 import FixationDisparity from './EyeTests/FixationDisparity/FixationDisparityComponent'
 import JacksonCrossCylinder from './EyeTests/JacksonCrossCylinder/JacksonCrossCylinderComponent'
-import KayPictures from './EyeTests/KayPictures/KayPicturesComponent'
+import KayPictures from './EyeTests/Pictures/PicturesComponent'
 import Numbers from './EyeTests/Numbers/NumbersComponent'
 import Snellen from './EyeTests/Snellen/SnellenComponent'
 import TumblingE from './EyeTests/TumblingE/TumblingEComponent'
@@ -33,7 +33,7 @@ export default class AppComponent extends React.Component<{}, {}> {
                         <Route path="/tumbling_e" component={TumblingE} />
                         <Route path="/jackson_cross_cylinder" component={JacksonCrossCylinder} />
                         <Route path="/duo_chrome" component={DuoChrome} />
-                        <Route path="/kay_pictures" component={KayPictures} />
+                        <Route path="/pictures" component={KayPictures} />
                         <Route path="/numbers" component={Numbers} />
                         <Route path="/fixation_disparity" component={FixationDisparity} />
                         <Route path="/fixation" component={Fixation} />

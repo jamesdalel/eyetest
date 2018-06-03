@@ -42,9 +42,9 @@ export default class HomeComponent extends React.Component<HomeComponentProps, H
             caption: 'Duo Chrome',
             link: 'duo_chrome',
         }, {
-            name: 'KAY_PICTURES',
-            caption: 'Kay Pictures',         
-            link: 'kay_pictures',   
+            name: 'PICTURES',
+            caption: 'Pictures',         
+            link: 'pictures',   
         }, {
             name: 'NUMBERS',
             caption: 'Numbers',    

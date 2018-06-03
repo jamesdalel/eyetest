@@ -3,17 +3,39 @@
     src:url("../Fonts/Sloan.otf")
 }
 
+@font-face {
+    font-family: "Trivial";
+    src:url("../Fonts/trivial-bold.otf")
+}
+
+@font-face {
+    font-family: "Butterflies";
+    src:url("../Fonts/Icons/Butterflies/Butterflies.ttf")
+}
+
+@font-face {
+    font-family: "EFON";
+    src:url("../Fonts/Icons/EFON/EFON.ttf")
+}
+
+.level-letter {
+    /* float: left; */
+}
+
 .snellen-scale {
     font-size: 23px;
     letter-spacing: normal;
-    position: relative;
+    position: absolute;
     color: #5a5353!important;
     font-family: 'Roboto', sans-serif;
+    right: -50%;
+    top: 30%;
 
 }
 
 .snellen-letter-row {
     padding-bottom: 10vh;
+    /* display: inline-block; */
 }
 
 .snellen-level-0 {
@@ -52,7 +74,7 @@
     font-size: 2.18166mm;
 }
 
-.snellen-letter-group {
+.snellen-group {
     /* width: 100%;
     text-align: center; */
     font-family: "Sloan";
@@ -65,6 +87,35 @@
     width: fit-content;
     height: fit-content;
 }
+
+.numbers-group {
+    /* width: 100%;
+    text-align: center; */
+    font-family: "Trivial";
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: fit-content;
+    height: fit-content;
+}
+
+.pictures-group {
+    /* width: 100%;
+    text-align: center; */
+    /* font-family: "EFON", "Butterflies"; */
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: fit-content;
+    height: fit-content;
+}
+
 
 .snellen-letter-row {
     /* padding-top: 20px;
@@ -106,10 +157,32 @@
     left: 45.5vw;
 }
 
-.scale-box {
-    height: 211px;
-    width: 50px;
-    background: red;
-    margin: 300px;
-    position: absolute
+i.efon-icon:before  {
+    font-family: 'EFON';
 }
+
+i.efon-icon-fish:before {
+    content: "\&#83";
+    
+}
+
+.efon-icon-duck:before {
+    font-family: 'EFON';
+    content: "\&#117"
+}
+
+.efon-icon-umbrella:before {
+    font-family: 'EFON';
+    content: "\&#78"
+}
+
+.efon-icon-plane:before {
+    font-family: 'EFON';
+    content: "\&#76"
+}
+
+.efon-icon-apple:before {
+    font-family: 'EFON';
+    content: "\&#40"
+}
+
